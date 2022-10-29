@@ -13,6 +13,94 @@
 			<a href="#"><img src="images/logos/spacex_logo.png" title="SpaceX Logo" height="20px" width="auto"></a>
 			<a href="#" style="float: right; padding: 10px 30px 0 0;"><img src="images/icons/three_bar_icon.png" height="12px" width="20px"></a>
 		</div>
+		<div class="area_login">
+			<input type="text" name="email" value="e-mail">
+			<input type="text" name="senha" value="senha">
+			<button id="login_button">Login</button>
+			<button id="singup_button">Cadastrar</button>
+			<script type="text/javascript">
+				if (localStorage.getItem('login') == 'ok') {
+					document.getElementById('login_button').textContent = 'Sair';
+				}
+				document.getElementById("login_button").addEventListener('click', function(){
+					var inputs = document.querySelectorAll('input');
+					var data = JSON.stringify({
+					  "email": inputs[0].value,
+					  "password": inputs[1].value
+					});
+
+					if (document.getElementById('login_button').textContent == 'Sair') {
+						localStorage.setItem('login', 'nok');
+						document.getElementById('login_button').textContent = 'Login';
+					} else if (inputs[0].value.length==0 || inputs[1].value.length==0){
+						localStorage.setItem('login', 'nok');
+						document.getElementById('login_button').textContent = 'Login';
+						alert("Dados inválidos: campo vazio.");
+					} else if (inputs[0].value.length<3 || inputs[1].value.length<3) {
+						localStorage.setItem('login', 'nok');
+						document.getElementById('login_button').textContent = 'Login';
+						alert("Dados inválidos: insira dados com mais de 3 caracteres.");
+					} else {
+						var xhr = new XMLHttpRequest();
+						xhr.addEventListener("readystatechange", function() {
+							if(this.readyState === 4) {
+							  	response = JSON.parse(this.responseText)
+							  	if (response.token) {
+							  		console.log(response.token);
+							  		localStorage.setItem('login', 'ok');
+							  		document.getElementById('login_button').textContent = 'Sair';
+							  	};
+								if (response.error) {
+									localStorage.setItem('login', 'nok');
+									document.getElementById('login_button').textContent = 'Login';
+							  		alert("Erro: "+response.error);
+							  	};
+							}
+						});
+						xhr.open("POST", "https://reqres.in/api/login");
+						xhr.setRequestHeader("Content-Type", "application/json");
+						xhr.send(data);
+					};
+				});
+				document.getElementById("singup_button").addEventListener('click', function(){
+					var inputs = document.querySelectorAll('input');
+					var data = JSON.stringify({
+					  "email": inputs[0].value,
+					  "password": inputs[1].value
+					});
+
+					if (inputs[0].value.length==0 || inputs[1].value.length==0){
+						localStorage.setItem('login', 'nok');
+						document.getElementById('login_button').textContent = 'Login';
+						alert("Dados inválidos: campo vazio.");
+					} else if (inputs[0].value.length<3 || inputs[1].value.length<3) {
+						localStorage.setItem('login', 'nok');
+						document.getElementById('login_button').textContent = 'Login';
+						alert("Dados inválidos: insira dados com mais de 3 caracteres.");
+					} else {
+						var xhr = new XMLHttpRequest();
+						xhr.addEventListener("readystatechange", function() {
+							if(this.readyState === 4) {
+							  	response = JSON.parse(this.responseText)
+							  	if (response.token) {
+							  		console.log(response.token);
+							  		localStorage.setItem('login', 'ok');
+							  		document.getElementById('login_button').textContent = 'Sair';
+							  	};
+								if (response.error) {
+									localStorage.setItem('login', 'nok');
+									document.getElementById('login_button').textContent = 'Login';
+							  		alert("Erro: "+response.error);
+							  	};
+							}
+						});
+						xhr.open("POST", "https://reqres.in/api/register");
+						xhr.setRequestHeader("Content-Type", "application/json");
+						xhr.send(data);
+					};
+				});
+			</script>
+		</div>
 		<div class="header_desktop">
 			<a href="#"><img src="images/logos/spacex_logo.png" title="SpaceX Logo" height="25px" width="auto"></a>
 			<a href="#" class="hover-underline-animation desktop">FALCON 9</a>
@@ -61,6 +149,45 @@
 				<div><a href="#">Learn More</a></div>
 			</div>
 			<div class="array"></div>
+		</div>
+		<div class="background" style="background-image: url('images/backgrounds/NASA_background.png')">
+			<div class="background-API">
+				<p>NASA Open API</p>
+				<div>
+					<input type="text" name="termo_de_busca" value="">
+					<button type="NASA">Buscar</button>
+					<div id=div_busca>
+						<ul id="text_result"></ul>
+						<img id="midia_result"></img>
+					</div>
+					<script type="text/javascript">
+						document.querySelector('button[type="NASA"]').addEventListener('click', function(){
+							const login_flag = localStorage.getItem('login');
+							if (login_flag == 'ok') {
+								var inputs = document.querySelectorAll('input');
+								var xhr = new XMLHttpRequest();
+								xhr.addEventListener("readystatechange", function() {
+									if(this.readyState === 4) {
+										var received_token = JSON.parse(this.responseText);
+										console.log(received_token)
+										var container = document.getElementById('text_result');
+										container.setAttribute("style","width:650px; height:300px; background-color:black");
+										container.innerHTML = received_token["collection"]["items"][0]["data"][0]["description"];
+										var container2 = document.getElementById('midia_result');
+										container2.setAttribute("style","width:450px; height:360px;");
+										container2.src = received_token["collection"]["items"][0]["links"][0]["href"];
+									};
+								});
+								xhr.open("GET", "https://images-api.nasa.gov/search?q="+inputs[2].value);
+								xhr.setRequestHeader("Content-Type", "application/json");
+								xhr.send();
+							} else {
+								alert("Você precisa estar logado/cadastrado para fazer buscas.");
+							};
+						});
+					</script>
+				</div>
+			</div>
 		</div>
 		<div class="footer_desktop">
 			<span>Spacex © 2022</span>
