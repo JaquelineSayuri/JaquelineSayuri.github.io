@@ -170,12 +170,16 @@
 									if(this.readyState === 4) {
 										var received_token = JSON.parse(this.responseText);
 										console.log(received_token)
-										var container = document.getElementById('text_result');
-										container.setAttribute("style","width:650px; height:300px; background-color:black");
-										container.innerHTML = received_token["collection"]["items"][0]["data"][0]["description"];
-										var container2 = document.getElementById('midia_result');
-										container2.setAttribute("style","width:450px; height:360px;");
-										container2.src = received_token["collection"]["items"][0]["links"][0]["href"];
+										if (received_token["collection"]["items"].length == 0) {
+											alert("Nenhum resultado encontrado. Tente novamente com outro termo de busca.");
+										} else {
+											var container = document.getElementById('text_result');
+											container.setAttribute("style","width:650px; height:300px; background-color:black");
+											container.innerHTML = received_token["collection"]["items"][0]["data"][0]["description"];
+											var container2 = document.getElementById('midia_result');
+											container2.setAttribute("style","width:450px; height:360px;");
+											container2.src = received_token["collection"]["items"][0]["links"][0]["href"];
+										};
 									};
 								});
 								xhr.open("GET", "https://images-api.nasa.gov/search?q="+inputs[2].value);
