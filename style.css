@@ -16,7 +16,6 @@ body, html {
 	text-align: left;
 }
 
-<<<<<<< HEAD
 .area_login {
   position: fixed;
   top: 170px;
@@ -31,8 +30,6 @@ body, html {
   line-height: 1.5;
 }
 
-=======
->>>>>>> 869b4b9c45c9ce762d52b48925355778f7fa12b5
 .header_desktop a, .header_mobile a {
 	text-decoration: none;
 	text-transform: uppercase;
@@ -306,6 +303,4 @@ button:hover {
 	left: 700px;
 	border-color: transparent;
 	background-color: black;
-=======
->>>>>>> 869b4b9c45c9ce762d52b48925355778f7fa12b5
 }
