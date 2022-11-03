@@ -259,7 +259,7 @@ button:hover {
 	left: 7%;
 }
 
-.background-API p {
+.background-API p.title {
 	text-decoration: none;
 	text-transform: uppercase;
 	color: #fff;
@@ -302,4 +302,17 @@ button:hover {
 	left: 700px;
 	border-color: transparent;
 	background-color: black;
+}
+
+.error_msg {
+	display: block;
+	text-decoration: none;
+	text-transform: uppercase;
+	z-index: 300;
+	color: red;
+	font-size: 10px;
+	font-family: 'Arial Narrow', sans-serif;
+	font-weight: 800;
+	transition: all ease 0.5s;
+	letter-spacing: 0px;
 }
