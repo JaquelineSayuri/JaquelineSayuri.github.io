@@ -20,11 +20,11 @@ app.use(session({
 }));
 app.engine('html', require('ejs').renderFile);
 
-app.get('/home', (req, res) => {
+app.get('/', (req, res) => {
 	res.render('index');
 });
 
-app.post('/home', async (req, res) => {
+app.post('/', async (req, res) => {
 	const email = req.body.email,
 		password = req.body.senha,
 		botao_login = req.body.botao_login,
