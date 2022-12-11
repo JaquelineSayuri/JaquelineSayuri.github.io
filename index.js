@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
 	res.render('index');
 });
 
-app.post('/', async (req, res) => {
+app.post('/login-register', async (req, res) => {
 	const email = req.body.email,
 		password = req.body.senha,
 		botao_login = req.body.botao_login,
