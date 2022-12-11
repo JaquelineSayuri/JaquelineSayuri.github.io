@@ -1,0 +1,358 @@
+body, html {
+	height: 100%;
+	margin: 0;
+}
+
+.header_desktop, .header_mobile {
+	width: 100%;
+	background-color: transparent;
+	position: fixed;
+	z-index: 100;
+	list-style: none;
+}
+
+.header_desktop {
+	display: block;
+	text-align: left;
+}
+
+.area_login {
+  position: fixed;
+  top: 170px;
+  right: 0;
+  width: 170px;
+  height: 90px;
+  border: none;
+  background-color: black;
+  z-index: 200;
+  text-align: center;
+  padding: 15px 10px 0 10px;
+  line-height: 1.5;
+}
+
+.header_desktop a, .header_mobile a {
+	text-decoration: none;
+	text-transform: uppercase;
+	color: #fff;
+	font-size: 13.5px;
+	margin: 0 10px 0 10px;
+	font-family: 'Arial Narrow', sans-serif;
+	font-weight: 800;
+	transition: all ease 0.5s;
+	padding: 45px 0 0 7px;
+	letter-spacing: 0px;
+}
+
+.header_desktop a:first-child {
+	padding: 33px 0 0 110px;
+}
+
+.header_mobile a:first-child {
+	padding: 0 0 0 100px;
+}
+
+.header_mobile {
+	display: none;
+	text-align: center;
+}
+
+@media only screen and (max-width: 960px) {
+  .header_desktop {
+  	display: none;
+	}
+	.header_mobile {
+		display: block;
+		padding: 12px 0 0 10px;
+	}
+}
+
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+  color: #fff;
+}
+
+.hover-underline-animation:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  top: 62px;
+  left: 2px;
+  background-color: #fff;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.background {
+	display: block;
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100%;
+	background-position: center;
+	position: relative;
+}
+
+.background-content {
+	position: absolute;
+	bottom: 18%;
+	left: 7%;
+}
+
+.background-content p {
+	text-decoration: none;
+	text-transform: uppercase;
+	color: #fff;
+	font-size: 45px;
+	margin: 0 0px;
+	font-family: 'Arial Narrow', sans-serif;
+	font-weight: 800;
+	transition: all ease 0.5s;
+	letter-spacing: 0px;
+	text-shadow: 0px 0px 1px black;
+}
+
+.background-content div {
+	padding: 40px 0 0 0;
+}
+
+.background-content a {
+	text-decoration: none;
+	text-transform: uppercase;
+	color: #fff;
+	font-size: 13.5px;
+	margin: 0 0px;
+	font-family: 'Arial Narrow', sans-serif;
+	font-weight: 800;
+	transition: all ease 0.5s;
+	letter-spacing: 0px;
+	border: 2px solid white;
+	padding: 17px 40px 17px 40px;
+	text-align: center;
+	float: center;
+}
+
+.background-content a:hover {
+	transition: box-shadow .20s ease-out;
+  box-shadow: inset 0 -50px 0 0px #fff;
+  color: black;
+}
+
+.footer_desktop, .footer_mobile {
+	height: 60px;
+	width: 100%;
+	background-color: black;
+	text-align: center;
+	float: center;
+	position: relative;
+	list-style: none;
+	padding: 40px 0 0 0;
+}
+
+.footer_desktop {
+	display: block;
+}
+
+.footer_mobile {
+	display: none;
+}
+
+.footer_desktop span, .footer_mobile span {
+	width: 12.5%;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: gray;
+	font-size: 13.5px;
+	margin: 0 0px;
+	font-family: 'Arial Narrow', sans-serif;
+	font-weight: 200;
+	letter-spacing: 0px;
+}
+
+.footer_desktop a, .footer_mobile a {
+	width: 12.5%;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: #fff;
+	font-size: 13.5px;
+	margin: 0 10px;
+	font-family: 'Arial Narrow', sans-serif;
+	font-weight: 800;
+	letter-spacing: 0px;
+	padding-left: 15px;
+	transition: color 0.7s;
+}
+
+.footer_desktop a:hover, .footer_mobile a:hover {
+	color: gray;
+}
+
+@media only screen and (max-width: 960px) {
+	.footer_desktop {
+  	display: none;
+	}
+	.footer_mobile {
+		display: block;
+		padding: 20px 0 0 0;
+	}
+}
+
+div.array{
+	background-image: url("images/icons/array.png");
+	background-size: contain;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 50%;
+  bottom: 20%;
+  transform: translateX(-50%);
+  animation-name: array;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes array{
+  0%{
+      bottom: 5%;
+      opacity: 1;
+  }
+  100%{
+      bottom: 3%;
+      opacity: 0;
+  }
+}
+
+button {
+	background-color: transparent;
+	text-transform: uppercase;
+	color: #fff;
+	font-size: 13.5px;
+	font-family: 'Arial Narrow', sans-serif;
+	font-weight: 800;
+	transition: all ease 0.5s;
+	letter-spacing: 0px;
+	border: 2px solid white;
+	text-align: center;
+	float: center;
+}
+
+button:hover {
+	transition: box-shadow .20s ease-out;
+  box-shadow: inset 0 -50px 0 0px #fff;
+  color: black;
+}
+
+.area_login input {
+	border: none;
+}
+
+.background-API {
+	position: absolute;
+	top: 180px;
+	left: 7%;
+}
+
+.background-API p.title {
+	text-decoration: none;
+	text-transform: uppercase;
+	color: #fff;
+	font-size: 45px;
+	margin: 0 0px;
+	font-family: 'Arial Narrow', sans-serif;
+	font-weight: 800;
+	transition: all ease 0.5s;
+	letter-spacing: 0px;
+	text-shadow: 0px 0px 1px black;
+}
+
+.background-API ul {
+	position: absolute;
+	top: 150px;
+	left: 0;
+	display: inline-block;
+	margin: 0 0 0 0;
+	text-align: justify;
+	background-color: transparent;
+	line-height: 1.5;
+	text-decoration: none;
+	color: #fff;
+	font-size: 20px;
+	padding: 30px 30px 30px 30px;
+	font-family: 'Arial Narrow', sans-serif;
+	font-weight: 800;
+	transition: all ease 0.5s;
+	letter-spacing: 0px;
+	text-shadow: 0px 0px 1px black;
+}
+
+.background-API div {
+	padding: 20px 0 0 0;
+}
+
+.background-API img {
+	position: absolute;
+	top: 150px;
+	left: 700px;
+	border-color: transparent;
+	background-color: black;
+}
+
+.error_msg {
+	display: block;
+	text-decoration: none;
+	text-transform: uppercase;
+	z-index: 300;
+	color: red;
+	font-size: 10px;
+	font-family: 'Arial Narrow', sans-serif;
+	font-weight: 800;
+	transition: all ease 0.5s;
+	letter-spacing: 0px;
+}
+
+.background-API label {
+	text-decoration: none;
+	text-transform: uppercase;
+	z-index: 300;
+	color: white;
+	font-size: 10px;
+	font-family: 'Arial Narrow', sans-serif;
+	font-weight: 800;
+	transition: all ease 0.5s;
+	letter-spacing: 0px;
+}
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  flex-direction: column;
+  height: 600px;
+  width: 1500px;
+}
+
+.box1 {
+  background-color: black;
+  width: 33%;
+  height: 600px;
+}
+
+.box2 {
+  background-color: black;
+  width: 33%;
+  height: 600px;
+}
+
+.box3 {
+  background-color: black;
+  width: 33%;
+  height: 600px;
+  ;
+}
