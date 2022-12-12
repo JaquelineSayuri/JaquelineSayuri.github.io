@@ -14,7 +14,7 @@
 			<a href="#" style="float: right; padding: 10px 30px 0 0;"><img src="images/icons/three_bar_icon.png" height="12px" width="20px"></a>
 		</div>
 		<div id="area_login" class="area_login">
-			<form action="home" method="post" accept-charset="utf-8">
+			<form action="login-register" method="post" accept-charset="utf-8">
 				<input type="text" name="email" placeholder="e-mail">
 				<input type="password" name="senha" placeholder="senha">
 				<input type="submit" id="login_button" name=botao_login value="Login"/>
@@ -80,12 +80,12 @@
 			<div class="background-API">
 				<p class="title">Conteúdos do usuário</p>
 				<div>
-					<form action="/search" method="get" accept-charset="utf-8">
+					<form action="/search" method="get" accept-charset="utf-8" style="padding-top: 40px;">
 							<input type="text" name="search_text" value="">
 							<input type="submit" name="buscar" value="Buscar"/>
 					</form>
 				</div>
-				<div style="margin-top: 10px;">
+				<div style="margin-top: 30px;">
 					<form action="/post" method="post" accept-charset="utf-8">
 							<label for="post_text" style="margin-top: 10px;">Digite um texto:</label>
 							<input type="text" id="post_text" name="post_text" style="margin-right: 50px;">
@@ -100,10 +100,23 @@
 					</form>
 				</div>
 				<p id="search_error_msg" class="error_msg"></p>
-				<div class="wrapper">
-					<div class="box box1"><ul id="text_result"></ul></div>
-					<div class="box box2"><img id="image_result"></img></div>
-					<div class="box box3"><video id="video_result"></video></div>
+				<div style="margin-top: 30px;">
+				<div class="wrapper" style="padding-top:50px">
+					<ul>
+					{{#posts}}
+					<li>
+					<div class="box1">
+						<div>{{content}}
+					</div>
+					<div class="box1">
+						<img src={{image}}>
+						<video width="700" controls>
+							<source src={{video}} type="video/mp4">
+						</video>
+					</div>
+					</li>
+					{{/posts}}
+					</ul>
 				</div>
 			</div>
 		</div>
