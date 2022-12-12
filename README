@@ -2,3 +2,50 @@ SpaceX website replica developed for the web programming course.
 
 Hospedagem no Heroku:
 https://spacex-projeto3.herokuapp.com/
+
+Databases utilizados:
+>> use content_db
+>> db.posts.find()
+[
+  {
+    _id: ObjectId("63954c75777064ec11f142e0"),
+    content: "Artemis is the name of NASA's program to return astronauts to the lunar surface. We are going forward to the Moon to stay.",
+    image: 'https://www.nasa.gov/specials/artemis/img/w-01.jpg',
+    video: 'https://www.nasa.gov/specials/artemis/video/Artemis-logo-reveal-1080p.mp4'
+  },
+  {
+    _id: ObjectId("639630f77912a30334cdbad5"),
+    content: 'A Lua é o único satélite natural da Terra e o quinto maior do Sistema Solar. É o maior satélite natural de um planeta no sistema solar em relação ao tamanho do seu corpo primário, tendo 27% do diâmetro e 60% da densidade da Terra, o que representa ¹⁄₈₁ da sua massa.',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Full_Moon_Luc_Viatour.jpg/1015px-Full_Moon_Luc_Viatour.jpg',
+    video: 'https://youtu.be/2iSZMv64wuU?t=3'
+  },
+  {
+    _id: ObjectId("639631df7912a30334cdbad6"),
+    content: 'Voyager é um programa norte-americano de pesquisa espacial da NASA iniciado em 1977 com o lançamento de duas missões, a Voyager 1 e Voyager 2, com o objetivo inicial de estudar os planetas Júpiter e Saturno e suas respectivas luas.',
+    image: 'https://www.cnnbrasil.com.br/wp-content/uploads/sites/12/2022/05/voyager.jpg',
+    video: 'https://youtu.be/BbLAze0Rbs4'
+  },
+  {
+    _id: ObjectId("639632937912a30334cdbad7"),
+    content: "Alpha Tauri conhecida como Aldebarã ou Aldebaran é a estrela mais brilhante da constelação Taurus. É também designada pelos nomes de Cor Tauri; Parilicium; Olho do Touro ou ainda, pelos códigos HR 1457 e HD 29139. Na Grécia antiga era conhecida como 'tocha' ou 'facho'.",
+    image: 'https://images.immediate.co.uk/production/volatile/sites/25/2022/05/aldebaran-star-b6969d5.jpg?quality=90&fit=700,475',
+    video: 'https://www.youtube.com/watch?v=sAn_SuuhVwA'
+  },
+  {
+    _id: ObjectId("63963e25f2ebbd706badfed5"),
+    content: 'Sagittarius A*, também chamada de Sagitário A*, é uma fonte de rádio astronômica brilhante e muito compacta localizada no centro da Via Láctea, perto da fronteira das constelações de Sagitário e Escorpião. É parte de um objeto astronômico maior conhecido como Sagittarius A.',
+    image: 'https://veja.abril.com.br/wp-content/uploads/2022/05/eso2208-eht-mwa.jpg',
+    video: 'https://www.youtube.com/watch?v=DRCD-zx5QFA'
+  }
+]
+
+>> use users_db
+>> db.accounts.find()
+[
+  {
+    _id: ObjectId("63955e69ea90469826db8586"),
+    email: 'jaquelinemachida@alunos.utfpr.edu.br',
+    password: 'senhamuitodificil'
+  }
+]
+
